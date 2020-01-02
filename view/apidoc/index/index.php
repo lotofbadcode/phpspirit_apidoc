@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Admiria - Responsive Flat Admin Dashboard</title>
-    <meta content="Admin Dashboard" name="description" />
+    <title>Spirit Apidoc - 更适合自己的接口文档管理工具</title>
+    <meta content="Spirit Apidoc - 更适合自己的接口文档管理工具" name="description" />
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="<?php echo $static_path; ?>images/favicon.ico">
 
@@ -63,65 +63,21 @@
                                 </a>
                             </li>
                             <!-- Fullscreen -->
-                            <li class="list-inline-item dropdown notification-list hidden-xs-down">
-                                <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
-                                    <i class="mdi mdi-fullscreen noti-icon"></i>
-                                </a>
-                            </li>
+
                             <!-- language-->
                             <li class="list-inline-item dropdown notification-list hidden-xs-down">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect text-muted" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    English <img src="assets/images/flags/us_flag.jpg" class="ml-2" height="16" alt="" />
+                                <a class="nav-link  arrow-none waves-effect text-muted" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    创建项目
+                                    <i class="ion-plus-round"></i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right language-switch">
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/germany_flag.jpg" alt="" height="16" /><span> German </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/italy_flag.jpg" alt="" height="16" /><span> Italian </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/french_flag.jpg" alt="" height="16" /><span> French </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/spain_flag.jpg" alt="" height="16" /><span> Spanish </span></a>
-                                    <a class="dropdown-item" href="#"><img src="assets/images/flags/russia_flag.jpg" alt="" height="16" /><span> Russian </span></a>
-                                </div>
+
                             </li>
                             <!-- notification-->
-                            <li class="list-inline-item dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <i class="ion-ios7-bell noti-icon"></i>
-                                    <span class="badge badge-danger noti-icon-badge">3</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5>Notification (3)</h5>
-                                    </div>
 
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                        <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
-                                        <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
-                                        <p class="notify-details"><b>New Message received</b><small class="text-muted">You have 87 unread messages</small></p>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-info"><i class="mdi mdi-martini"></i></div>
-                                        <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is a long established fact that a reader will</small></p>
-                                    </a>
-
-                                    <!-- All-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        View All
-                                    </a>
-
-                                </div>
-                            </li>
                             <!-- User-->
                             <li class="list-inline-item dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
+                                    <img src="<?php echo $static_path; ?>images/users/avatar-1.jpg" alt="user" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> Profile</a>
@@ -142,7 +98,7 @@
                                 </button>
                             </li>
                             <li class="hide-phone list-inline-item app-search">
-                                <h3 class="page-title">Dashboard 2</h3>
+                                <h3 class="page-title">Spirit Apidoc - 更适合自己的接口文档管理工具</h3>
                             </li>
                         </ul>
 
@@ -156,17 +112,21 @@
 
 
                         <div class="row">
+
                             <div class="col-md-6 col-lg-6 col-xl-3">
-                                <div class="mini-stat clearfix bg-white">
-                                    <span class="mini-stat-icon bg-primary"><i class="mdi mdi-cart-outline"></i></span>
-                                    <div class="mini-stat-info text-right">
-                                        <span class="counter text-primary">15852</span>
-                                        Total Sales
+                                <a href="<?php echo url('apidoc/Index/main')?>">
+                                    <div class="mini-stat clearfix bg-white">
+                                        <span class="mini-stat-icon bg-primary"><i class="mdi mdi-cart-outline"></i></span>
+                                        <div class="mini-stat-info text-right">
+                                            <span class="counter text-primary">15852</span>
+                                            Total Sales
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p class=" mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p>
                                     </div>
-                                    <div class="clearfix"></div>
-                                    <p class=" mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p>
-                                </div>
+                                </a>
                             </div>
+
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="mini-stat clearfix bg-white">
                                     <span class="mini-stat-icon bg-success"><i class="mdi mdi-currency-usd"></i></span>
@@ -444,7 +404,7 @@
             </div> <!-- content -->
 
             <footer class="footer" style="left:0">
-                © 2019 - 2020 PHP精灵 <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by PHP精灵</span>
+                © 2019 - 2020 Spirit Apidoc - 更适合自己的接口文档管理工具 <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by PHP精灵</span>
             </footer>
 
         </div>
@@ -458,7 +418,6 @@
     <script src="<?php echo $static_path; ?>js/jquery.nicescroll.js"></script>
     <script src="<?php echo $static_path; ?>js/jquery.scrollTo.min.js"></script>
     <script src="<?php echo $static_path; ?>js/app.js"></script>
-    <script src="<?php echo $static_path; ?>js/ajax.js"></script>
 
     <script src="<?php echo $static_path; ?>plugins/peity-chart/jquery.peity.min.js"></script>
     <script type="text/javascript" src="<?php echo $static_path; ?>plugins/d3/d3.min.js"></script>

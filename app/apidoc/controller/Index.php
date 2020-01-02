@@ -13,6 +13,6 @@ class Index extends Base
 
     public function main()
     {
-
+        return View::fetch();
     }
 }
