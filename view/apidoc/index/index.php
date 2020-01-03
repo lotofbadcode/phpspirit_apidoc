@@ -9,11 +9,8 @@
     <meta content="Spirit Apidoc - 更适合自己的接口文档管理工具" name="description" />
     <meta content="Themesbrand" name="author" />
     <link rel="shortcut icon" href="<?php echo $static_path; ?>images/favicon.ico">
-
     <link href="<?php echo $static_path; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $static_path; ?>css/metismenu.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $static_path; ?>css/icons.css" rel="stylesheet" type="text/css">
-
     <link href="<?php echo $static_path; ?>plugins/c3/c3.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $static_path; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $static_path; ?>css/icons.css" rel="stylesheet" type="text/css">
@@ -64,14 +61,48 @@
                             </li>
                             <!-- Fullscreen -->
 
-                            <!-- language-->
+                            <!-- create project-->
                             <li class="list-inline-item dropdown notification-list hidden-xs-down">
-                                <a class="nav-link  arrow-none waves-effect text-muted" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <a class="nav-link  arrow-none waves-effect text-muted" data-toggle="modal" data-target=".createproject" role="button" aria-haspopup="false" aria-expanded="false">
                                     创建项目
                                     <i class="ion-plus-round"></i>
                                 </a>
-
                             </li>
+
+                            <div class="modal fade createproject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title mt-0" id="myLargeModalLabel">创建项目</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="#">
+
+                                                <div class="form-group">
+                                                    <label>项目名称</label>
+                                                    <div>
+                                                        <input type="text" class="form-control" data-parsley-required-message="项目名称必填"    required name="projectname" placeholder="输入项目名称" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group m-b-0">
+                                                    <div>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light m-r-5">
+                                                            提交
+                                                        </button>
+                                                        <button type="reset" class="btn btn-secondary waves-effect">
+                                                            重置
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- notification-->
 
                             <!-- User-->
@@ -114,7 +145,7 @@
                         <div class="row">
 
                             <div class="col-md-6 col-lg-6 col-xl-3">
-                                <a href="<?php echo url('apidoc/Index/main')?>">
+                                <a href="<?php echo url('apidoc/Index/main') ?>">
                                     <div class="mini-stat clearfix bg-white">
                                         <span class="mini-stat-icon bg-primary"><i class="mdi mdi-cart-outline"></i></span>
                                         <div class="mini-stat-info text-right">
@@ -409,6 +440,9 @@
 
         </div>
     </div>
+
+
+
     <!-- jQuery  -->
     <script src="<?php echo $static_path; ?>js/jquery.min.js"></script>
     <script src="<?php echo $static_path; ?>js/bootstrap.bundle.min.js"></script>
@@ -425,6 +459,14 @@
     <script src="<?php echo $static_path; ?>plugins/jquery-knob/excanvas.js"></script>
     <script src="<?php echo $static_path; ?>plugins/jquery-knob/jquery.knob.js"></script>
     <script src="<?php echo $static_path; ?>pages/widget-init.js"></script>
+
+    <script type="text/javascript" src="<?php echo $static_path; ?>plugins/parsleyjs/parsley.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').parsley();
+        });
+    </script>
 </body>
 
 </html>
