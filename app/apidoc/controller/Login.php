@@ -32,6 +32,11 @@ class Login extends BaseController
     public function register()
     {
         if ($this->request->isPost()) {
+            return json([
+                'code' => -1,
+                'message' => '用户名已存在'
+            ]);
+
             $data = $this->request->post();
             $data['pwd'] = password_hash($data['password'], PASSWORD_DEFAULT);
             try {
