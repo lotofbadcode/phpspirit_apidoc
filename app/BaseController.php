@@ -1,10 +1,12 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 namespace app;
 
 use think\App;
 use think\exception\ValidateException;
+use think\Response;
 use think\Validate;
 
 /**
@@ -52,7 +54,8 @@ abstract class BaseController
 
     // 初始化
     protected function initialize()
-    {}
+    {
+    }
 
     /**
      * 验证数据
@@ -91,4 +94,42 @@ abstract class BaseController
         return $v->failException(true)->check($data);
     }
 
+    /**
+     * 成功提示
+     */
+    public function success($message = '', $data = [], $errorcode = 0)
+    {
+        $reslutdata = [
+            'code' => $errorcode,
+            'message' => $message,
+            'data' => $data
+        ];
+
+        //判断是否是AJAX 
+        if ($this->request->isAjax()) {
+            return Response::create($reslutdata, 'json', 200)
+                ->header([])
+                ->options([]);
+        } else {
+        }
+    }
+
+    /**
+     * 错误提示
+     */
+    public function error($msg = '', $data = [], $errorcode = 1)
+    {
+        $reslutdata = [
+            'code' => $errorcode,
+            'message' => $msg,
+            'data' => $data
+        ];
+        //判断是否是AJAX 
+        if ($this->request->isAjax()) {
+            return Response::create($reslutdata, 'json', 200)
+                ->header([])
+                ->options([]);
+        } else {
+        }
+    }
 }

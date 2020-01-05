@@ -77,22 +77,22 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="#">
+                                            <form action="<?php echo url('apidoc/project/add') ?>">
 
                                                 <div class="form-group">
                                                     <label>项目名称</label>
                                                     <div>
-                                                        <input type="text" class="form-control" data-parsley-required-message="项目名称必填"    required name="projectname" placeholder="输入项目名称" />
+                                                        <input type="text" class="form-control" data-parsley-required-message="项目名称必填" required name="projectname" placeholder="输入项目名称" />
                                                     </div>
                                                 </div>
 
 
                                                 <div class="form-group m-b-0">
                                                     <div>
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light m-r-5">
+                                                        <button type="button" jump='{"type":1,"message":"添加成功","url":"<?php echo url('apidoc/index/index') ?>"}' class="spirit_submit btn btn-primary waves-effect waves-light m-r-5">
                                                             提交
                                                         </button>
-                                                        <button type="reset" class="btn btn-secondary waves-effect">
+                                                        <button type="reset" class=" btn btn-secondary waves-effect">
                                                             重置
                                                         </button>
                                                     </div>
@@ -143,20 +143,28 @@
 
 
                         <div class="row">
+                            <?php
+                            foreach ($projects as $project) {
+                            ?>
+                                <div class="col-md-6 col-lg-6 col-xl-3">
 
-                            <div class="col-md-6 col-lg-6 col-xl-3">
-                                <a href="<?php echo url('apidoc/Index/main') ?>">
                                     <div class="mini-stat clearfix bg-white">
-                                        <span class="mini-stat-icon bg-primary"><i class="mdi mdi-cart-outline"></i></span>
+                                        <span class="mini-stat-icon bg-primary"><?php echo mb_substr($project['projectname'], 0, 1, 'utf-8'); ?></span>
                                         <div class="mini-stat-info text-right">
-                                            <span class="counter text-primary">15852</span>
-                                            Total Sales
+                                            <a href="<?php echo url('apidoc/Index/main') ?>">
+                                                <span class="counter text-primary"><?php echo $project['projectname'] ?></span>
+                                            </a>
+                                            参与人数：8人
                                         </div>
                                         <div class="clearfix"></div>
-                                        <p class=" mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p>
+                                        <p class=" mb-0 m-t-20 text-muted">我的角色: 创建者 <span class="pull-right"><i class="fa fa-caret-down m-r-5"></i>操作</span></p>
                                     </div>
-                                </a>
-                            </div>
+
+                                </div>
+                            <?php
+                            }
+                            ?>
+
 
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <div class="mini-stat clearfix bg-white">
@@ -461,12 +469,7 @@
     <script src="<?php echo $static_path; ?>pages/widget-init.js"></script>
 
     <script type="text/javascript" src="<?php echo $static_path; ?>plugins/parsleyjs/parsley.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('form').parsley();
-        });
-    </script>
+    <script src="<?php echo $static_path; ?>js/request.js"></script>
 </body>
 
 </html>

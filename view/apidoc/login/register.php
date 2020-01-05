@@ -48,7 +48,7 @@
                     <h4 class="font-18 m-b-5 text-center">账户注册</h4>
                     <p class="text-muted text-center">创建一个属于你的Spirit Apidoc账户</p>
 
-                    <form class="form-horizontal m-t-30" action="index.html">
+                    <form class="form-horizontal m-t-30" action="<?php echo url('apidoc/login/register')?>">
 
 
 
@@ -74,11 +74,11 @@
                         
                         <div class="form-group row m-t-20">
                             <div class="col-12 text-right">
-                                <button id="registerbtn" class="btn btn-primary w-md waves-effect waves-light" data-loading-text="Loading..." type="button">注册</button>
+                                <button jump='{"type":1,"url":"<?php echo url('apidoc/project/index')?>","message":"注册成功"}' class="btn btn-primary w-md waves-effect waves-light spirit_submit" data-loading-text="Loading..." type="button">注册</button>
                             </div>
                         </div>
-                        <div class="alert alert-danger" id="errortip" style="display: none" role="alert"></div>
-                        <div class="alert alert-success" id="successtip"  style="display: none"  role="alert"></div>
+                        
+                     
 
                     </form>
                 </div>
@@ -106,54 +106,8 @@
     <!-- App js -->
     <script src="<?php echo $static_path; ?>js/app.js"></script>
     <script type="text/javascript" src="<?php echo $static_path; ?>plugins/parsleyjs/parsley.min.js"></script>
-    <script src="http://www.zjszx.gov.cn/templates/main/js/crypto-js.js"></script>
+    <script src="<?php echo $static_path; ?>js/request.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            function post(url, data, jump) {
-                $.ajax({
-                    url: url,
-                    cache: false,
-                    data: data,
-                    type: "POST",
-                    success: function(data) {
-                        if (data.code == 0) {
-                            switch (jump.type) {
-                                case 1:
-                                    $('#successtip').html(jump.message + "，3秒后自动<a href='" + jump.url + "' class='alert-link'>跳转</a>");
-                                    $('#successtip').show();
-                                    setTimeout(function() {
-                                        window.location.href = jump.url;
-                                    }, 3000);
-                                    break;
-                            }
-                        } else {
-                            $('#errortip').html(data.message);
-                            $('#errortip').show();
-                            setTimeout(function() {
-                                $('#errortip').fadeOut(1000)
-                            }, 3000);
-                        }
-                    }
-                });
-            }
-
-            $('#registerbtn').click(function() {
-                b = $('form').parsley().validate();
-                if (b) {
-                    jump = {
-                        type: 1,
-                        message: '注册成功',
-                        url: '<?php echo url('apidoc/index/index'); ?>'
-
-                    };
-                    post('<?php echo url('apidoc/login/register') ?>', $('form').serialize(), jump);
-                }
-            });
-
-        });
-    </script>
 </body>
 
 </html>
