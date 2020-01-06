@@ -41,12 +41,9 @@
     
                                 <li class="menu-title">接口管理</li>
     
-                                <li class="has_sub">
-                                    <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard <span class="badge badge-pill badge-primary pull-right">20+</span></span> </a>
-                                    <ul class="list-unstyled">
-                                        <li><a href="index.html">Dashboard One</a></li>
-                                        <li><a href="dashboard-2.html">Dashboard Two</a></li>
-                                    </ul>
+                                <li class="">
+                                    <a href="<?php echo url('apidoc/api/index')?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> 接口列表 </span> </a>
+                                 
                                 </li>
     
                                 <li>

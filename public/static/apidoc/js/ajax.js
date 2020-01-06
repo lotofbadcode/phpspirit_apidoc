@@ -44,7 +44,7 @@ function my_ajax(page) {
 	$('.page-title').append(capitalizeFirstLetter(replace_str));
 
 	$.ajax({
-		url: 'ajax/' + page,
+		url:  page,
 		cache: false,
 		dataType: 'html',
 		type: "GET",
