@@ -4,6 +4,8 @@ $('.spirit_submit').click(function () {
     submitbtn = $(this);
     b = form.parsley().validate();
     if (b) {
+        var ladda = Ladda.create(this);
+        ladda.start();
         $.ajax({
             url: form.attr('action'),
             cache: false,
@@ -52,7 +54,11 @@ $('.spirit_submit').click(function () {
                 setTimeout(function () {
                     $(form).find('.errortip').fadeOut(1000)
                 }, 3000);
-            }
+            },
+            complete:function(data){
+                //请求完成的处理
+                ladda.stop();
+            },
         });
     }
 });

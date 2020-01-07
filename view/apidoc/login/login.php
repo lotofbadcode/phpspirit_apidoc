@@ -16,7 +16,7 @@
         <link href="<?php echo $static_path; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $static_path; ?>css/icons.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $static_path; ?>css/style.css" rel="stylesheet" type="text/css">
-
+        <link href="<?php echo $static_path; ?>css/ladda/ladda-themeless.min.css" rel="stylesheet" type="text/css">
     </head>
 
 
@@ -58,7 +58,7 @@
                                     
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button jump='{"type":2,"url":"<?php echo url('apidoc/project/index')?>"}' class="spirit_submit btn btn-primary w-md waves-effect waves-light" type="button">登录</button>
+                                    <button jump='{"type":2,"url":"<?php echo url('apidoc/project/index')?>"}' data-style="expand-left" class="spirit_submit btn btn-primary w-md waves-effect waves-light ladda-button" type="button">登录</button>
                                 </div>
                             </div>
 
@@ -85,6 +85,8 @@
         <script src="<?php echo $static_path; ?>js/waves.js"></script>
         <script src="<?php echo $static_path; ?>js/jquery.nicescroll.js"></script>
         <script src="<?php echo $static_path; ?>js/jquery.scrollTo.min.js"></script>
+        <script src="<?php echo $static_path; ?>plugins/ladda/spin.min.js"></script>
+        <script src="<?php echo $static_path; ?>plugins/ladda/ladda.min.js"></script>
 
         <!-- App js -->
         <script src="<?php echo $static_path; ?>js/app.js"></script>

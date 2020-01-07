@@ -334,7 +334,7 @@
                     </div> <!-- content -->
     
                     <footer class="footer">
-                        © 2017 - 2019 Admiria <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</span>
+                        © 2019 - 2020 Spirit Apidoc - 更适合自己的接口文档管理工具  <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by PHP精灵</span>
                     </footer>
     
                 </div>

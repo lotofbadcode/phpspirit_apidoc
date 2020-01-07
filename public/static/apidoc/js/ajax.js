@@ -2,7 +2,7 @@ $(document).on('click', '#unique_menu li a', function (e) {
 	e.preventDefault();
 
 	var page = $(this).attr('href');
-
+	var title =$(this).text();
 	if ($(this).attr('target') == '_blank')
 		window.open(page, '_blank');
 
@@ -29,20 +29,20 @@ $(document).on('click', '#unique_menu li a', function (e) {
 
 	if (page == "javascript:void(0);")
 		return false;
-	my_ajax(page);
+	my_ajax(page,title);
 });
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function my_ajax(page) {
+function my_ajax(page,title) {
 	var split_array = page.split(".");
 	$('.page-title').empty();
 	var replace_str = split_array[0];
 	replace_str = replace_str.replace('-', ' ');
-	$('.page-title').append(capitalizeFirstLetter(replace_str));
-
+	//$('.page-title').append(capitalizeFirstLetter(replace_str));
+	$('.page-title').append(title);
 	$.ajax({
 		url:  page,
 		cache: false,
