@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="<?php echo $static_path; ?>plugins/summernote/summernote-bs4.css">
 
 <link rel="stylesheet" href="<?php echo $static_path ?>css/ztree/bootstrapStyle.css" type="text/css">
-
+<link rel="stylesheet" href="<?php echo $static_path ?>css/chkradiobuild.css" type="text/css">
 <script type="text/javascript" src="<?php echo $static_path ?>js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="<?php echo $static_path ?>js/jquery.ztree.excheck.js"></script>
 <script type="text/javascript" src="<?php echo $static_path ?>js/jquery.ztree.exedit.js"></script>
 <SCRIPT type="text/javascript">
-
     var setting = {
         view: {
             addHoverDom: addHoverDom,
@@ -336,7 +335,6 @@
     function removeHoverDom(treeId, treeNode) {
         $("#addBtn_" + treeNode.tId).unbind().remove();
     };
- 
 </SCRIPT>
 
 <div class="row">
@@ -346,93 +344,71 @@
             <a style="color:white;" class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">创建文件夹</a>
             <div class="m-t-20"></div>
             <ul id="treeDemo" class="ztree card"></ul>
-            
+
         </div>
         <!-- End Left sidebar -->
 
 
         <!-- Right Sidebar -->
         <div class="email-rightbar" style="margin-left:410px">
-            <div class="btn-toolbar" role="toolbar">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="fa fa-inbox"></i></button>
-                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="fa fa-exclamation-circle"></i></button>
-                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="fa fa-trash-o"></i></button>
-                </div>
-                <div class="btn-group ml-1">
-                    <button type="button" class="btn btn-primary waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-folder"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Updates</a>
-                        <a class="dropdown-item" href="#">Social</a>
-                        <a class="dropdown-item" href="#">Team Manage</a>
-                    </div>
-                </div>
-                <div class="btn-group ml-1">
-                    <button type="button" class="btn btn-primary waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-tag"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Updates</a>
-                        <a class="dropdown-item" href="#">Social</a>
-                        <a class="dropdown-item" href="#">Team Manage</a>
-                    </div>
+            <div class="btn-toolbar" role="toolbar" style="padding-top: 9px;">
+                <div class="checkbox checkbox-success checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox1" value="option1">
+                    <label for="inlineCheckbox1"> 通用请求头 </label>
                 </div>
 
-                <div class="btn-group ml-1">
-                    <button type="button" class="btn btn-primary waves-light waves-effect dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        More
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Mark as Unread</a>
-                        <a class="dropdown-item" href="#">Mark as Important</a>
-                        <a class="dropdown-item" href="#">Add to Tasks</a>
-                        <a class="dropdown-item" href="#">Add Star</a>
-                        <a class="dropdown-item" href="#">Mute</a>
-                    </div>
+                <div class="checkbox checkbox-success checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox2" value="option1">
+                    <label for="inlineCheckbox2"> 通用请求参数 </label>
                 </div>
+
+                <div class="checkbox checkbox-success checkbox-inline">
+                    <input type="checkbox" class="styled" id="inlineCheckbox3" value="option1">
+                    <label for="inlineCheckbox3"> Inline One </label>
+                </div>
+
+
             </div>
 
 
             <div class="card m-t-20">
                 <div class="card-body">
 
-                    <form role="form">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="To">
-                        </div>
+                    <!--tree/start-->
+                    <script src="<?php echo $static_path ?>js/jquery.treetable.js"></script>
+                    <link href="<?php echo $static_path ?>css/treetable/jquery.treetable.min.css" rel="stylesheet">
+                    <link href="<?php echo $static_path ?>css/treetable/jquery.treetable.theme.default.css" rel="stylesheet">
+                    <table id="example-basic-static" class="">
+                        <thead>
+                            <tr>
+                                <th>参数</th>
+                            </tr>
+                        </thead>
+                        <tr data-tt-id="0">
+                            <td>app</td>
+                        </tr>
+                        <tr data-tt-id="1" data-tt-parent-id="0">
+                            <td>controller</td>
+                        </tr>
+                        <tr data-tt-id="5" data-tt-parent-id="1">
+                            <td>admin.php</td>
+                        </tr>
+                        <tr data-tt-id="2" data-tt-parent-id="0">
+                            <td>model</td>
+                        </tr>
+                        <tr data-tt-id="3" data-tt-parent-id="0">
+                            <td>validate</td>
+                        </tr>
+                        <tr data-tt-id="4" data-tt-parent-id="0">
+                            <td>view</td>
+                        </tr>
+                    </table>
+                    <script>
+                        $(function() {
+                            $("#example-basic-static").treetable();
+                        })
+                    </script>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <div class="summernote">
-                                <h6>Hello Summernote</h6>
-                                <ul>
-                                    <li>
-                                        Select a text to reveal the toolbar.
-                                    </li>
-                                    <li>
-                                        Edit rich document on-the-fly, so elastic!
-                                    </li>
-                                </ul>
-                                <p>
-                                    End of air-mode area
-                                </p>
-
-                            </div>
-                        </div>
-
-                        <div class="btn-toolbar form-group m-b-0">
-                            <div class="">
-                                <button type="button" class="btn btn-success waves-effect waves-light m-r-5"><i class="fa fa-floppy-o"></i></button>
-                                <button type="button" class="btn btn-success waves-effect waves-light m-r-5"><i class="fa fa-trash-o"></i></button>
-                                <button class="btn btn-purple waves-effect waves-light"> <span>Send</span> <i class="fa fa-send m-l-10"></i> </button>
-                            </div>
-                        </div>
-
-                    </form>
 
                 </div>
 
