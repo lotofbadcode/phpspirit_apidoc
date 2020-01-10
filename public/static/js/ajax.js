@@ -63,11 +63,11 @@ function my_ajax(page,title) {
 $(document).ready(function () {
 	var path = window.location.hash.substr(1);
 
-	if (path == "index.html") {
+	/*if (path == "index.html") {
 		my_ajax('index.html');
 	}
 	else {
 		my_ajax('index.html');
-	}
+	}*/
 
 });

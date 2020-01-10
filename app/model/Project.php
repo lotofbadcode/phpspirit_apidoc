@@ -1,6 +1,6 @@
 <?php
 
-namespace app\common\model;
+namespace app\model;
 
 use Exception;
 use think\facade\Db;

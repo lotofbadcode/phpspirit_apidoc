@@ -1,27 +1,19 @@
 <?php
 
-namespace app\apidoc\controller;
+namespace app\controller;
 
 use app\BaseController;
-use app\common\model\User;
+use app\middleware\StaticPath;
+use app\model\User;
 use Exception;
-use think\facade\Config;
 use think\facade\Session;
 use think\facade\View;
 
 class Login extends BaseController
 {
-    public function initialize()
-    {
-        $this->setStaticPath();
-    }
-    public function setStaticPath()
-    {
-        $appconfig = Config::get('app');
-        $static_path = $appconfig['root_path'] . '/static/' . app('http')->getName() . '/';
-        View::assign('static_path', $static_path);
-    }
-
+    protected $middleware = [
+        StaticPath::class
+    ];
     public function login()
     {
         if ($this->request->isPost()) {
@@ -68,5 +60,12 @@ class Login extends BaseController
         } else {
             return View::fetch();
         }
+    }
+
+    public  function logout()
+    {
+        Session::set('loginuser', null);
+        Session::set('projectinfo', null);
+        return redirect(url('login/login'));
     }
 }
