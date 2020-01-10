@@ -1,13 +1,14 @@
 <?php
 
-namespace app\controller\apidoc;
+namespace app\controller\project;
 
+use app\controller\ProjectBase;
 use app\model\Project as ModelProject;
 use Exception;
 use think\facade\Db;
 use think\facade\View;
 
-class Project extends Base
+class Index extends ProjectBase
 {
     public function index()
     {

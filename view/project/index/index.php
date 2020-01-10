@@ -77,7 +77,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="<?php echo url('apidoc.project/add') ?>">
+                                            <form action="<?php echo url('project.index/add') ?>">
 
                                                 <div class="form-group">
                                                     <label>项目名称</label>

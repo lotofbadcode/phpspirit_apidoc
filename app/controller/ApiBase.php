@@ -1,15 +1,13 @@
 <?php
 
-namespace app\controller\apidoc;
+namespace app\controller;
 
-use app\middleware\Auth;
+use app\apidoc\middleware\Auth;
 use app\BaseController;
 use app\middleware\StaticPath;
-use think\facade\Config;
 use think\facade\Session;
-use think\facade\View;
 
-class Base extends BaseController
+class ApiBase extends BaseController
 {
     /**
      * 登录用户
