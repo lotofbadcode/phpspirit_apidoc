@@ -48,7 +48,7 @@
                     <h4 class="font-18 m-b-5 text-center">账户注册</h4>
                     <p class="text-muted text-center">创建一个属于你的Spirit Apidoc账户</p>
 
-                    <form class="form-horizontal m-t-30" action="<?php echo url('apidoc/login/register')?>">
+                    <form class="form-horizontal m-t-30" action="<?php echo url('apidoc.login/register')?>">
 
 
 
@@ -74,7 +74,7 @@
                         
                         <div class="form-group row m-t-20">
                             <div class="col-12 text-right">
-                                <button jump='{"type":1,"url":"<?php echo url('apidoc/project/index')?>","message":"注册成功"}' class="btn btn-primary w-md waves-effect waves-light spirit_submit" data-loading-text="Loading..." type="button">注册</button>
+                                <button jump='{"type":1,"url":"<?php echo url('apidoc.project/index')?>","message":"注册成功"}' class="btn btn-primary w-md waves-effect waves-light spirit_submit" data-loading-text="Loading..." type="button">注册</button>
                             </div>
                         </div>
                         
@@ -87,7 +87,7 @@
         </div>
 
         <div class="m-t-40 text-center">
-            <p class="text-white">已经有一个账户 ? <a href="<?php echo url('apidoc/login/login'); ?>" class="font-500 font-14 text-white font-secondary"> 登录 </a> </p>
+            <p class="text-white">已经有一个账户 ? <a href="<?php echo url('apidoc.login/login'); ?>" class="font-500 font-14 text-white font-secondary"> 登录 </a> </p>
             <p class="text-white">© 2018 - 2020 Spirit Apidoc. Crafted with <i class="mdi mdi-heart text-danger"></i> by PHP精灵</p>
         </div>
 

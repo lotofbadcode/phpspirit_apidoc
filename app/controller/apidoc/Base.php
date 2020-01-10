@@ -31,7 +31,7 @@ class Base extends BaseController
     public function setStaticPath()
     {
         $appconfig = Config::get('app');
-        $static_path = $appconfig['root_path'] . '/static/' . app('http')->getName() . '/';
+        $static_path = $appconfig['root_path'] . '/static/';
         View::assign('static_path', $static_path);
     }
 }

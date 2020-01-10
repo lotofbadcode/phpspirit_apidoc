@@ -1,8 +1,8 @@
 <?php
 
-namespace app\apidoc\controller;
+namespace app\controller\apidoc;
 
-use app\common\model\Project as ModelProject;
+use app\model\Project as ModelProject;
 use Exception;
 use think\facade\Db;
 use think\facade\View;

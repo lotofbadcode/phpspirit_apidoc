@@ -77,7 +77,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="<?php echo url('apidoc/project/add') ?>">
+                                            <form action="<?php echo url('apidoc.project/add') ?>">
 
                                                 <div class="form-group">
                                                     <label>项目名称</label>
@@ -89,7 +89,7 @@
 
                                                 <div class="form-group m-b-0">
                                                     <div>
-                                                        <button type="button" jump='{"type":1,"message":"添加成功","url":"<?php echo url('apidoc/index/index') ?>"}' class="spirit_submit btn btn-primary waves-effect waves-light m-r-5">
+                                                        <button type="button" jump='{"type":1,"message":"添加成功","url":"<?php echo url('apidoc.index/index') ?>"}' class="spirit_submit btn btn-primary waves-effect waves-light m-r-5">
                                                             提交
                                                         </button>
                                                         <button type="reset" class=" btn btn-secondary waves-effect">
@@ -151,7 +151,7 @@
                                     <div class="mini-stat clearfix bg-white">
                                         <span class="mini-stat-icon bg-primary"><?php echo mb_substr($project['projectname'], 0, 1, 'utf-8'); ?></span>
                                         <div class="mini-stat-info text-right">
-                                            <a href="<?php echo url('apidoc/Index/main') ?>">
+                                            <a href="<?php echo url('apidoc.Index/main') ?>">
                                                 <span class="counter text-primary"><?php echo $project['projectname'] ?></span>
                                             </a>
                                             参与人数：8人

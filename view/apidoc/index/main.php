@@ -42,7 +42,7 @@
                                 <li class="menu-title">接口管理</li>
     
                                 <li class="">
-                                    <a href="<?php echo url('apidoc/api/index')?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> 接口列表 </span> </a>
+                                    <a href="<?php echo url('apidoc.api/index')?>" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> 接口列表 </span> </a>
                                  
                                 </li>
     
