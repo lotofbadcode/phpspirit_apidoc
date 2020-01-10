@@ -151,7 +151,7 @@
                                     <div class="mini-stat clearfix bg-white">
                                         <span class="mini-stat-icon bg-primary"><?php echo mb_substr($project['projectname'], 0, 1, 'utf-8'); ?></span>
                                         <div class="mini-stat-info text-right">
-                                            <a href="<?php echo url('apidoc.Index/main') ?>">
+                                            <a href="<?php echo url('apidoc.Index/index',['projectid'=>$project['id']]) ?>">
                                                 <span class="counter text-primary"><?php echo $project['projectname'] ?></span>
                                             </a>
                                             参与人数：8人

@@ -1,5 +1,8 @@
 <?php namespace app\apidoc\controller;
-class ApiCode extends Base
+
+use app\controller\ApiBase;
+
+class ApiCode extends ApiBase
 {
     public function add()
     {

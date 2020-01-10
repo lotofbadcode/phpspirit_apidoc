@@ -6,7 +6,6 @@ use app\BaseController;
 use app\middleware\StaticPath;
 use app\model\User;
 use Exception;
-use think\facade\Config;
 use think\facade\Session;
 use think\facade\View;
 
@@ -61,5 +60,12 @@ class Login extends BaseController
         } else {
             return View::fetch();
         }
+    }
+
+    public  function logout()
+    {
+        Session::set('loginuser', null);
+        Session::set('projectinfo', null);
+        return redirect(url('login/login'));
     }
 }

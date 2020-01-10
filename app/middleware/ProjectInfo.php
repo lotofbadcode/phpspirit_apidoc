@@ -15,7 +15,7 @@ class ProjectInfo
                 if ($request->isAjax()) {
                     return json(['code' => -999, 'message' => '登录超时，请重新登录']);
                 } else {
-                    return redirect(url('apidoc.login/login'));
+                    return redirect(url('login/login'));
                 }
             }
             $projects = Db::name('project_user')
