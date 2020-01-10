@@ -378,34 +378,79 @@
                     <script src="<?php echo $static_path ?>js/jquery.treetable.js"></script>
                     <link href="<?php echo $static_path ?>css/treetable/jquery.treetable.min.css" rel="stylesheet">
                     <link href="<?php echo $static_path ?>css/treetable/jquery.treetable.theme.default.css" rel="stylesheet">
-                    <table id="example-basic-static" class="">
+                    <table id="example-advanced">
+                        <caption>
+                            <a href="#" onclick="jQuery('#example-advanced').treetable('expandAll'); return false;">Expand all</a>
+                            <a href="#" onclick="jQuery('#example-advanced').treetable('collapseAll'); return false;">Collapse all</a>
+                        </caption>
                         <thead>
                             <tr>
-                                <th>参数</th>
+                                <th>Name</th>
+                                <th>Kind</th>
+                                <th>Size</th>
                             </tr>
                         </thead>
-                        <tr data-tt-id="0">
-                            <td>app</td>
-                        </tr>
-                        <tr data-tt-id="1" data-tt-parent-id="0">
-                            <td>controller</td>
-                        </tr>
-                        <tr data-tt-id="5" data-tt-parent-id="1">
-                            <td>admin.php</td>
-                        </tr>
-                        <tr data-tt-id="2" data-tt-parent-id="0">
-                            <td>model</td>
-                        </tr>
-                        <tr data-tt-id="3" data-tt-parent-id="0">
-                            <td>validate</td>
-                        </tr>
-                        <tr data-tt-id="4" data-tt-parent-id="0">
-                            <td>view</td>
-                        </tr>
+                        <tbody>
+                            <tr data-tt-id='1'>
+                                <td><span class='folder'>Acknowledgements.rtf</span></td>
+                                <td>File</td>
+                                <td>480.95 KB</td>
+                            </tr>
+                            <tr data-tt-id='2'>
+                                <td><span class='folder'>CHUD</span></td>
+                                <td>Folder</td>
+                                <td>--</td>
+                            </tr>
+                            <tr data-tt-id='3' data-tt-parent-id='2'>
+                                <td><span class='file'>amber</span></td>
+                                <td>Folder</td>
+                                <td>--</td>
+                            </tr>
+                            <tr data-tt-id='4' data-tt-parent-id='2'>
+                                <td><span class='file'>amber1</span></td>
+                                <td>Folder</td>
+                                <td>--</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <script>
                         $(function() {
-                            $("#example-basic-static").treetable();
+                            $("#example-advanced").treetable({
+                                expandable: false
+                            });
+
+                            // Highlight selected row
+                            $("#example-advanced tbody").on("mousedown", "tr", function() {
+                                $(".selected").not(this).removeClass("selected");
+                                $(this).toggleClass("selected");
+                            });
+
+                            // Drag & Drop Example Code
+                            $("#example-advanced .file, #example-advanced .folder").draggable({
+                                helper: "clone",
+                                opacity: .75,
+                                refreshPositions: true,
+                                revert: "invalid",
+                                revertDuration: 300,
+                                scroll: true
+                            });
+
+                            $("#example-advanced .folder").each(function() {
+                                $(this).parents("#example-advanced tr").droppable({
+                                    accept: ".file, .folder",
+                                    drop: function(e, ui) {
+                                        var droppedEl = ui.draggable.parents("tr");
+                                        $("#example-advanced").treetable("move", droppedEl.data("ttId"), $(this).data("ttId"));
+                                    },
+                                    hoverClass: "accept",
+                                    over: function(e, ui) {
+                                        var droppedEl = ui.draggable.parents("tr");
+                                        if (this != droppedEl[0] && !$(this).is(".expanded")) {
+                                            $("#example-advanced").treetable("expandNode", $(this).data("ttId"));
+                                        }
+                                    }
+                                });
+                            });
                         })
                     </script>
 
@@ -421,16 +466,4 @@
 
 </div>
 
-<script src="<?php echo $static_path; ?>plugins/summernote/summernote-bs4.js"></script>
-
-<script>
-    jQuery(document).ready(function() {
-
-        $('.summernote').summernote({
-            height: 250, // set editor height
-            minHeight: null, // set minimum height of editor
-            maxHeight: null, // set maximum height of editor
-            focus: false // set focus to editable area after initializing summernote
-        });
-    });
-</script>
+<script src="<?php echo $static_path; ?>js/jquery-ui.min.js"></script>

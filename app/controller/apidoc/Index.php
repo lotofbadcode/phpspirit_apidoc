@@ -1,6 +1,6 @@
 <?php
 
-namespace app\apidoc\controller;
+namespace app\controller\apidoc;
 
 use think\facade\View;
 

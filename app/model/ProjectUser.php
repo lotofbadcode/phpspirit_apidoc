@@ -1,4 +1,4 @@
-<?php namespace app\common\model;
+<?php namespace app\model;
 
 use think\Model;
 
