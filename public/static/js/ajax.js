@@ -2,7 +2,7 @@ $(document).on('click', '#unique_menu li a', function (e) {
 	e.preventDefault();
 
 	var page = $(this).attr('href');
-	var title =$(this).text();
+	var title = $(this).text();
 	if ($(this).attr('target') == '_blank')
 		window.open(page, '_blank');
 
@@ -29,14 +29,14 @@ $(document).on('click', '#unique_menu li a', function (e) {
 
 	if (page == "javascript:void(0);")
 		return false;
-	my_ajax(page,title);
+	my_ajax(page, title);
 });
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function my_ajax(page,title) {
+function my_ajax(page, title) {
 	var split_array = page.split(".");
 	$('.page-title').empty();
 	var replace_str = split_array[0];
@@ -44,12 +44,13 @@ function my_ajax(page,title) {
 	//$('.page-title').append(capitalizeFirstLetter(replace_str));
 	$('.page-title').append(title);
 	$.ajax({
-		url: 
-		 page,
+		url: page,
 		cache: false,
 		dataType: 'html',
 		type: "GET",
 		success: function (data) {
+			alert($(data).data('title'));
+			$('.page-title').append($(data).data('title'));
 			$("#result").empty();
 			$("#result").html(data);
 			window.location.hash = page;
@@ -62,12 +63,11 @@ function my_ajax(page,title) {
 
 $(document).ready(function () {
 	var path = window.location.hash.substr(1);
-
-	/*if (path == "index.html") {
-		my_ajax('index.html');
+	if (path != "") {
+		my_ajax(path);
 	}
 	else {
-		my_ajax('index.html');
-	}*/
+		//my_ajax('index.html');
+	}
 
 });
