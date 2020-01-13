@@ -1,4 +1,3 @@
-
 <style>
     td {
         font-size: 13px;
@@ -10,8 +9,16 @@
     <div class="col-lg-12">
         <div class="card m-b-20">
             <div class="card-body">
-            <a href="http://www.baidu.com" data-toggle="modal" data-target="#mymodal">打开</a>
-            <div class="modal-content" id="mymodal"></div>
+                <button type="button" id='tt' class="btn btn-primary btn-sm waves-effect waves-light">添加错误码</button>
+                <div class="modal fade" style="top:13%;" tabindex="-1" role="dialog" id="showModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <!-- 内容会加载到这里 -->哈哈哈哈
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+
+
                 <button type="button" data-toggle="modal" data-target=".createcode" class="btn btn-primary btn-sm waves-effect waves-light">添加错误码</button>
                 <div class="modal fade createcode" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -82,3 +89,24 @@
         </div>
     </div>
 </div>
+<script>
+    $(function() {
+        $("#tt").click(function() {
+
+            // 打开模态框
+
+            $("#showModal").modal({
+                // backdrop: 'static', // 点击空白不关闭
+                keyboard: false, // 按键盘esc也不会关闭
+                remote: 'http://www.my0511.com' // 从远程加载内容的地址
+            });
+
+
+
+        });
+        $("#showModal").on("hidden.bs.modal", function() {
+            $(this).removeData("bs.modal");
+            $(this).find(".modal-content").children().remove();
+        });
+    })
+</script>
