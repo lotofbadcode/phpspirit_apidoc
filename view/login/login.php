@@ -58,7 +58,7 @@
                                     
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <button jump='{"type":2,"url":"<?php echo url('apidoc.index/index')?>"}' data-style="expand-left" class="spirit_submit btn btn-primary w-md waves-effect waves-light ladda-button" type="button">登录</button>
+                                    <button jump='{"type":2,"url":"<?php echo url('project.index/index')?>"}' data-style="expand-left" class="spirit_submit btn btn-primary w-md waves-effect waves-light ladda-button" type="button">登录</button>
                                 </div>
                             </div>
 

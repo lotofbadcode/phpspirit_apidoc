@@ -29,30 +29,29 @@ $(document).on('click', '#unique_menu li a', function (e) {
 
 	if (page == "javascript:void(0);")
 		return false;
-	my_ajax(page, title);
+	my_ajax(page);
 });
 
 function capitalizeFirstLetter(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function my_ajax(page, title) {
+function my_ajax(page) {
 	var split_array = page.split(".");
 	$('.page-title').empty();
-	var replace_str = split_array[0];
-	replace_str = replace_str.replace('-', ' ');
+	//var replace_str = split_array[0];
+	//replace_str = replace_str.replace('-', ' ');
 	//$('.page-title').append(capitalizeFirstLetter(replace_str));
-	$('.page-title').append(title);
+	
 	$.ajax({
 		url: page,
 		cache: false,
 		dataType: 'html',
 		type: "GET",
 		success: function (data) {
-			alert($(data).data('title'));
-			$('.page-title').append($(data).data('title'));
 			$("#result").empty();
 			$("#result").html(data);
+			$('.page-title').append($("#result").find('.pagetitle').attr('title'));
 			window.location.hash = page;
 			$(window).scrollTop(0);
 		}

@@ -6,11 +6,12 @@
     }
 </style>
 
-<div class="row " data-title="错误码">
+<div class="row pagetitle" title="错误码">
     <div class="col-lg-12">
         <div class="card m-b-20">
             <div class="card-body">
-
+            <a href="http://www.baidu.com" data-toggle="modal" data-target="#mymodal">打开</a>
+            <div class="modal-content" id="mymodal"></div>
                 <button type="button" data-toggle="modal" data-target=".createcode" class="btn btn-primary btn-sm waves-effect waves-light">添加错误码</button>
                 <div class="modal fade createcode" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
