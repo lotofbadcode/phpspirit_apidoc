@@ -9,14 +9,7 @@
     <div class="col-lg-12">
         <div class="card m-b-20">
             <div class="card-body">
-                <button type="button" id='tt' class="btn btn-primary btn-sm waves-effect waves-light">添加错误码</button>
-                <div class="modal fade" style="top:13%;" tabindex="-1" role="dialog" id="showModal">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <!-- 内容会加载到这里 -->哈哈哈哈
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
+                
 
 
                 <button type="button" data-toggle="modal" data-target=".createcode" class="btn btn-primary btn-sm waves-effect waves-light">添加错误码</button>
@@ -89,24 +82,39 @@
         </div>
     </div>
 </div>
+
+<button data-toggle="modal" class="btn btn-primary" data-remote="/phpspirit_apidoc/public/index.php/apidoc.api/index.html" data-target="#modal">Click me</button>
+
+<div id="modal" class="modal fade text-center">
+        <div class="modal-dialog" style="display: inline-block;width:100%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    等待结果，请稍后...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!--scripts loaded here-->
+
+
+
 <script>
-    $(function() {
-        $("#tt").click(function() {
-
-            // 打开模态框
-
-            $("#showModal").modal({
-                // backdrop: 'static', // 点击空白不关闭
-                keyboard: false, // 按键盘esc也不会关闭
-                remote: 'http://www.my0511.com' // 从远程加载内容的地址
-            });
-
-
-
-        });
-        $("#showModal").on("hidden.bs.modal", function() {
-            $(this).removeData("bs.modal");
-            $(this).find(".modal-content").children().remove();
-        });
-    })
+  $('#modal').on('hidden.bs.modal', function (e) {
+      $(this).find('.modal-body').html(' 正在加载，请稍后...');
+      $(this).removeData('bs.modal');
+  }).on('show.bs.modal', function (e) {
+      var button = $(e.relatedTarget);
+      var modal = $(this);
+      modal.find('.modal-body').load(button.data("remote"));
+  });
 </script>
+
