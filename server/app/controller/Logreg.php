@@ -36,7 +36,7 @@ class Logreg extends BaseController
             $tokendata = [
                 'iss' => $this->request->domain(),
                 'iat' => $time,
-                'exp' => $time + 1200,
+                'exp' => $time + 30,
                 'userinfo' => $userinfo
             ];
             $refreshtokendata = [

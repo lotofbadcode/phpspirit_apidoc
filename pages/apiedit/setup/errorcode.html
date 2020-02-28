@@ -9,11 +9,10 @@
                     <div class="layui-inline">
 
                         <button id="btnAddDataSource" class="layui-btn icon-btn"><i
-                                class="layui-icon">&#xe654;</i>添加数据源</button>
+                                class="layui-icon">&#xe654;</i>添加错误码</button>
                     </div>
                 </div>
             </div>
-
             <table id="tabledatasource" lay-filter="tabledatasource"></table>
         </div>
     </div>
@@ -27,56 +26,25 @@
 </script>
 <!-- 表单弹窗 -->
 <script type="text/html" id="modeldatasource">
-    <form id="modelDataSourceForm" lay-filter="modelDataSourceForm" class="layui-form model-form">
+    <form id="modelErrorcodeForm" lay-filter="modelErrorcodeForm" class="layui-form model-form">
        
+
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">数据库类型</label>
+            <label class="layui-form-label layui-form-required" style="width: 115px;">错误码</label>
             <div class="layui-input-block" style="margin-left: 145px;">
-              <select name="type">
-                  <option value="mysql">MYSQL</option>
-              </select>
+                <input placeholder="请输入错误码" type="text" class="layui-input" maxlength="20" 
+                       lay-verType="tips" lay-verify="required" name="code" required/>
             </div>
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">服务器地址</label>
+            <label class="layui-form-label layui-form-required" style="width: 115px;">错误描述</label>
             <div class="layui-input-block" style="margin-left: 145px;">
-                <input placeholder="请输入数据库地址" type="text" class="layui-input" maxlength="20" 
-                       lay-verType="tips" lay-verify="required" name="server" required/>
+                <input placeholder="请输入错误描述" type="text" class="layui-input" maxlength="20" 
+                       lay-verType="tips" lay-verify="required" name="message"  required/>
             </div>
         </div>
 
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">端口号</label>
-            <div class="layui-input-block" style="margin-left: 145px;">
-                <input placeholder="请输入端口号" type="text" class="layui-input" maxlength="20" 
-                       lay-verType="tips" lay-verify="required" name="port"  required/>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">账号</label>
-            <div class="layui-input-block" style="margin-left: 145px;">
-                <input placeholder="请输入账号" type="text" class="layui-input" maxlength="20" 
-                       lay-verType="tips" lay-verify="required" name="user"  required/>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">密码</label>
-            <div class="layui-input-block" style="margin-left: 145px;">
-                <input placeholder="请输入密码" type="text" class="layui-input" maxlength="20" 
-                       lay-verType="tips" lay-verify="required" name="pwd" required/>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required" style="width: 115px;">数据编码</label>
-            <div class="layui-input-block" style="margin-left: 145px;">
-                <input  placeholder="请输入数据编码" name="code" type="text" class="layui-input" maxlength="20" 
-                       lay-verType="tips" lay-verify="required" required/>
-            </div>
-        </div>
     
         <div class="layui-form-item text-right">
             <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
@@ -169,10 +137,7 @@
                     // 表单提交事件
                     form.on('submit(modelSubmitDataSource)', function (data) {
                         layer.load(2);
-                        var data=data.field;
-                        data.projectid=setter.getProjectid();
-                        console.log(data);
-                        admin.req(url, data, function (res) {
+                        admin.req(url, data.field, function (res) {
                             layer.closeAll('loading');
                             if (res.code == 0) {
                                 layer.close(dIndex);

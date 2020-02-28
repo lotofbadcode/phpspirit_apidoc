@@ -168,7 +168,7 @@
                 }
                 return (false);
             }
-            
+            setter.putProjectid(getQueryVariable("projectid"));
             admin.req('project/read', { projectid: getQueryVariable("projectid") }, function (res) {
                 $('#projectname').text(res.data.projectname);
             }, 'post');

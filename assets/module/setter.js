@@ -2,7 +2,7 @@
 
 layui.define(function (exports) {
     var setter = {
-        baseServer: 'http://www.phpspirit.com/phpspirit_apidoc/server/public/index.php/', // 接口地址，实际项目请换成http形式的地址
+        baseServer: 'http://www.phpspirit.com/phpspirit_apidoc/server/public/index.php/', // 接口地址
         pageTabs: false,   // 是否开启多标签
         cacheTab: true,  // 是否记忆Tab
         defaultTheme: ' theme-cyan',  // 默认主题
@@ -12,6 +12,30 @@ layui.define(function (exports) {
         viewSuffix: '.html',  // 视图后缀
         reqPutToPost: true,  // req请求put方法变成post
         tableName: 'easyweb-spa',  // 存储表名
+
+        // 获取缓存的projectid
+        getProjectid: function () {
+            var cache = layui.data(setter.tableName);
+            if (cache) {
+                return cache.projectid;
+            }
+        },
+        // 清除token
+        removeProjectid: function () {
+            layui.data(setter.tableName, {
+                key: 'projectid',
+                remove: true
+            });
+        },
+        // 缓存token
+        putProjectid: function (projectid) {
+            layui.data(setter.tableName, {
+                key: 'projectid',
+                value: projectid
+            });
+        },
+
+
         // 获取缓存的token
         getToken: function () {
             var cache = layui.data(setter.tableName);
@@ -38,7 +62,7 @@ layui.define(function (exports) {
         getRefreshToken: function () {
             var cache = layui.data(setter.tableName);
             if (cache) {
-                return cache.token;
+                return cache.refreshtoken;
             }
         },
         // 清除token
@@ -60,7 +84,7 @@ layui.define(function (exports) {
         getLoginUser: function () {
             var cache = layui.data(setter.tableName);
             if (cache) {
-                return cache.token;
+                return cache.LoginUser;
             }
         },
         // 清除token
@@ -147,31 +171,29 @@ layui.define(function (exports) {
             var token = setter.getToken();
             var refreshtoken = setter.getRefreshToken()
 
-            var tokenexpdate = new Date(token.exp);
-            var refreshtokenexpdate = new Date(refreshtoken.exp);
-
-            var dateDiff = nowdate.getTime() - token.exp;
+            var dateDiff = nowdate.getTime() - token.exp; console.log(nowdate.getTime()); console.log(token.exp);
             if (dateDiff > 0) {
 
                 //刷新key
-                var refreshdateDiff = nowdate.getTime() - refreshtoken.exp;
+                var refreshdateDiff = nowdate.getTime() - refreshtoken.exp; console.log(nowdate.getTime()); console.log(refreshtoken.exp);
                 if (refreshdateDiff > 0) {
                     //跳转到登录页面
-                    layer.msg('登录超时', { icon: 5 }, function () {
-                        window.location.href = 'login.html';
+                    layer.msg('登录超时1', { icon: 5 }, function () {
+                        //window.location.href = 'login.html';
                     });
                 }
-
+                var $ = layui.jquery;
+               
                 $.ajax({
-                    url: setter.baseServer + 'user.Logreg/refreshtoken',
+                    url: setter.baseServer + 'Logreg/refreshtoken',
                     type: 'post',
-                    headers: { refreshtoken: refreshtoken.token },
+                    headers: { refreshtoken: refreshtoken.refreshtoken },
                     dataType: 'JSON',
                     async: false,
                     success: function (res) {
                         if (res.code == 0) {
                             var dd = new Date();
-                            var tokenexp = dd.getTime() + 60 * 18 * 1000;
+                            var tokenexp = dd.getTime() + 30 * 1000;
                             var reftokenexp = dd.getTime() + 60 * 38 * 1000;
                             setter.putToken({ exp: tokenexp, token: res.data.token });
                             setter.putRefreshToken({ exp: reftokenexp, refreshtoken: res.data.refreshtoken });
@@ -180,7 +202,7 @@ layui.define(function (exports) {
                         } else {
                             layer.closeAll('loading');
                             layer.msg('登录超时', { icon: 5 }, function () {
-                                window.location.href = 'login.html';
+                                //window.location.href = 'login.html';
                             });
                         }
                     },
