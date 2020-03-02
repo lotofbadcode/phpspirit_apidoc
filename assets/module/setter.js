@@ -178,7 +178,7 @@ layui.define(function (exports) {
                 var refreshdateDiff = nowdate.getTime() - refreshtoken.exp; console.log(nowdate.getTime()); console.log(refreshtoken.exp);
                 if (refreshdateDiff > 0) {
                     //跳转到登录页面
-                    layer.msg('登录超时1', { icon: 5 }, function () {
+                    layer.msg('登录超时', { icon: 5 }, function () {
                         //window.location.href = 'login.html';
                     });
                 }
