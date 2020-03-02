@@ -86,7 +86,7 @@
                     success: function (res) {
                         if (res.code == 0) {
                             var dd = new Date();
-                            var tokenexp = dd.getTime() + 30 * 1 * 1000;
+                            var tokenexp = dd.getTime() + 60 * 18 * 1000;
                             var reftokenexp = dd.getTime() + 60 * 38 * 1000;
                             setter.putToken({ exp: tokenexp, token: res.data.token });
                             setter.putRefreshToken({ exp: reftokenexp, refreshtoken: res.data.refreshtoken });

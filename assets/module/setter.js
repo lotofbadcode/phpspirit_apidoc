@@ -179,8 +179,9 @@ layui.define(function (exports) {
                 if (refreshdateDiff > 0) {
                     //跳转到登录页面
                     layer.msg('登录超时', { icon: 5 }, function () {
-                        //window.location.href = 'login.html';
+                        window.location.href = 'login.html';
                     });
+                    return false;
                 }
                 var $ = layui.jquery;
                
@@ -202,7 +203,7 @@ layui.define(function (exports) {
                         } else {
                             layer.closeAll('loading');
                             layer.msg('登录超时', { icon: 5 }, function () {
-                                //window.location.href = 'login.html';
+                                window.location.href = 'login.html';
                             });
                         }
                     },
